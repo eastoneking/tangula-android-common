@@ -1,5 +1,6 @@
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'maven'
 
 
@@ -35,10 +36,17 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
 
-    implementation 'com.android.support:appcompat-v7:21.0.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    // https://mvnrepository.com/artifact/commons-codec/commons-codec
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.11'
+
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    implementation "com.android.support:appcompat-v7:$support_version"
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "com.android.support.test:runner:$support_test_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 
@@ -59,6 +67,9 @@ uploadArchives {
             packaging 'aar'
         }
     }
+}
+repositories {
+    mavenCentral()
 }
 
 
