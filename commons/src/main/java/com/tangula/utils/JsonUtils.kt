@@ -19,8 +19,8 @@ class JsonUtils {
         }
 
         @JvmStatic
-        fun <T> fromArrayJson(str:String, typeToken: TypeToken<T>): List<T>{
-            return Gson().fromJson(str, typeToken.type);
+        fun <T> fromArrayJson(str:String, typeToken: TypeToken<T>): T{
+            return Gson().fromJson(str, typeToken.type)
         }
 
     }
