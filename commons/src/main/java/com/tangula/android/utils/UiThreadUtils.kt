@@ -21,10 +21,10 @@ class UiThreadUtils {
             }.execute()
         }
 
+        @JvmStatic
         fun runInUiThread(task:()->Unit){
             runInUiThread(Runnable{task.invoke()})
         }
-
 
         @JvmStatic
         @SuppressLint("StaticFieldLeak")
@@ -36,12 +36,10 @@ class UiThreadUtils {
             }.execute()
         }
 
-
         @JvmStatic
         fun runInBackground(task: Runnable){
            runInBackground{task.run()}
         }
-
 
         @JvmStatic
         fun showToast(text:String, duration:Int){

@@ -36,6 +36,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
 
+    // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation 'org.apache.commons:commons-lang3:3.7'
     // https://mvnrepository.com/artifact/commons-codec/commons-codec
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.11'
 

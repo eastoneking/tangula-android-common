@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.tangula.android.utils.ApplicationUtils;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,5 +24,13 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.tangula.android.commons.test", appContext.getPackageName());
+
+    }
+
+    @Test
+    public void uniqueId(){
+        String id1 = ApplicationUtils.fetchUniqueId();
+        String id2 = ApplicationUtils.fetchUniqueId();
+        assertEquals(id1, id2);
     }
 }
