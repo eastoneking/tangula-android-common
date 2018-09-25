@@ -27,17 +27,37 @@ class UiThreadUtils {
 
 
         @JvmStatic
+        @SuppressLint("StaticFieldLeak")
+        fun runInBackground(task: ()->Unit){
+            object: AsyncTask<Unit, Unit, Unit>(){
+                override fun doInBackground(vararg params: Unit?) {
+                    task()
+                }
+            }.execute()
+        }
+
+
+        @JvmStatic
+        fun runInBackground(task: Runnable){
+           runInBackground{task.run()}
+        }
+
+
+        @JvmStatic
         fun showToast(text:String, duration:Int){
             runInUiThread{ Toast.makeText(ApplicationUtils.APP, text, duration).show()}
         }
 
+        @JvmStatic
         fun showToastLong(text:String){
             showToast(text, Toast.LENGTH_LONG)
         }
 
+        @JvmStatic
         fun showToastShort(text:String){
             showToast(text, Toast.LENGTH_SHORT)
         }
+
     }
 
 }
