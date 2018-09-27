@@ -3,9 +3,10 @@ package com.tangula.utils
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-
+/**
+ * The json utils.
+ */
 class JsonUtils {
-
 
     companion object {
         @JvmStatic

@@ -3,9 +3,12 @@ package com.tangula.android.commons;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.util.Log;
 
 import com.tangula.android.utils.ApplicationUtils;
+import com.tangula.utils.function.Supplier;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -28,9 +31,17 @@ public class ExampleInstrumentedTest {
     }
 
     @Test
-    public void uniqueId(){
-        String id1 = ApplicationUtils.fetchUniqueId();
-        String id2 = ApplicationUtils.fetchUniqueId();
+    public void tesetUniqueId(){
+        Context appContext = InstrumentationRegistry.getTargetContext();
+        String id1 = ApplicationUtils.fetchUniqueId(appContext);
+        String id2 = ApplicationUtils.fetchUniqueId(appContext);
         assertEquals(id1, id2);
+
+        ApplicationUtils.clearUniqueId(appContext);
+        String id3 = ApplicationUtils.loadUniqueId(appContext);
+        assertTrue(StringUtils.isNotBlank(id3));
+        assertEquals(id1, id3);
     }
+
+
 }

@@ -12,7 +12,7 @@ class BitmapUtils {
     companion object {
 
         /**
-         * bitmap转为base64
+         * bitmap convert to base64.
          * @param bitmap
          * @return
          */
@@ -49,9 +49,9 @@ class BitmapUtils {
         }
 
         /**
-         * base64转为bitmap
-         * @param base64Data
-         * @return
+         * base64 convert to bitmap type.
+         * @param base64Data input.
+         * @return the bitmap object.
          */
         @JvmStatic
         fun base64ToBitmap(base64Data: String): Bitmap {
