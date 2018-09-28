@@ -32,13 +32,17 @@ public class ExampleInstrumentedTest {
 
     @Test
     public void tesetUniqueId(){
-        Context appContext = InstrumentationRegistry.getTargetContext();
-        String id1 = ApplicationUtils.fetchUniqueId(appContext);
-        String id2 = ApplicationUtils.fetchUniqueId(appContext);
+
+        Context ctx = InstrumentationRegistry.getTargetContext();
+
+        assertNotNull(ApplicationUtils.Companion.getAndroidId(ctx));
+
+        String id1 = ApplicationUtils.fetchUniqueId(ctx);
+        String id2 = ApplicationUtils.fetchUniqueId(ctx);
         assertEquals(id1, id2);
 
-        ApplicationUtils.clearUniqueId(appContext);
-        String id3 = ApplicationUtils.loadUniqueId(appContext);
+        ApplicationUtils.clearUniqueId(ctx);
+        String id3 = ApplicationUtils.loadUniqueId(ctx);
         assertTrue(StringUtils.isNotBlank(id3));
         assertEquals(id1, id3);
     }
