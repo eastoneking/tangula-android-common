@@ -1,39 +1,19 @@
-# tangula-android-commons
+# 唐古拉安卓公共库项目（Tangula Android Common Library Project）
 
-#### 项目介绍
-{**以下是码云平台说明，您可以替换为您的项目简介**
-码云是开源中国推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用码云实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+## 项目介绍
 
-#### 软件架构
-软件架构说明
+唐古拉系列项目中Android项目的基础库。这里准备实现一系列Android开发工具，
+这个项目是所有工具包的基础，在这个项目中定义了所有功能中最基础的部分。
+所谓的最基础的部分是指对于唐古拉Android系列项目中的其他项目没有依赖关系。
+而其他项目都不同程度地依赖此包。
 
+- *唐古拉命名来源*
 
-#### 安装教程
+  *本项目最初开发人员原属于一家名为唐古拉的公司。相关项目原本是为了在这家
+  公司的开发中使用的。虽然公司因故解散，但是为了实现当初的一系列想法，项
+  目负责人决定尝试继续完成这一系列工程，并作为个人项目公开。*
 
-1. xxxx
-2. xxxx
-3. xxxx
+  *同时，为了保持一致，项目包命名依然采用**com.tangula.android**为前缀。*
 
-#### 使用说明
+## 项目内容
 
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 参与贡献
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
-
-
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
