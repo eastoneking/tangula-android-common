@@ -1,4 +1,4 @@
-package com.tangula.utils
+package com.tangula.android.utils
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -6,15 +6,19 @@ import android.util.Base64
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
-
+/**
+ * 操作Bitmap的工具类.
+ */
 class BitmapUtils {
 
     companion object {
 
         /**
-         * bitmap convert to base64.
-         * @param bitmap
-         * @return
+         * 生成位图的Base64格式字符串.
+         *
+         * @param[bitmap] 图片.
+         * @return 字符串.
+         * 如果参数[bitmap]为空，返回空字符串.
          */
         @JvmStatic
         fun bitmapToBase64(bitmap: Bitmap?): String {
@@ -49,9 +53,9 @@ class BitmapUtils {
         }
 
         /**
-         * base64 convert to bitmap type.
+         * 将保存为base64格式的位图转换回[Bitmap]类型的对象.
          * @param base64Data input.
-         * @return the bitmap object.
+         * @return 位图对象.
          */
         @JvmStatic
         fun base64ToBitmap(base64Data: String): Bitmap {
