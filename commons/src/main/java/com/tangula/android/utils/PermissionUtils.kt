@@ -105,15 +105,31 @@ class PermissionUtils {
             }
         }
 
+        fun runHasAnyPremissionsNotWithRequestPermissions(permissions: List<String>, task:()->Unit){
+            checkPermissions(permissions).also {
+                if(it.allPass){
+                    task()
+                }
+            }
+        }
+
     }
 
 }
 
 class GpsPermissionsUtils{
     companion object {
+
+        val GPS_PERMISSIONS = listOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+
         fun whenHasGpsPermissions(act:Activity, task:()->Unit){
-            PermissionUtils.runHasAnyPremissions(act, listOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), task)
+            PermissionUtils.runHasAnyPremissions(act, GPS_PERMISSIONS, task)
         }
+
+        fun whenHasGpsPermissionsNotWithRequestPermissions(task:()->Unit){
+            PermissionUtils.runHasAnyPremissionsNotWithRequestPermissions(GPS_PERMISSIONS, task)
+        }
+
     }
 }
 
