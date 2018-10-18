@@ -15,5 +15,10 @@
 
   *同时，为了保持一致，项目包命名依然采用**com.tangula.android**为前缀。*
 
-## 项目内容
+## 项目如何使用
+
+请参见:[项目WIKI](https://github.com/eastoneking/tangula-android-commons/wiki)
+
+-----
+The End
 
