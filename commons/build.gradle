@@ -4,16 +4,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'maven'
 
 
-group='com.tangula.android'
-archivesBaseName = 'commons'
-version = '0.0.1-SNAPSHOT'
-
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
@@ -47,29 +43,6 @@ dependencies {
 
 
     implementation "com.android.support:multidex:$multidex_version"
-}
-
-
-def GROUP_ID = "com.tangula.android"
-
-
-uploadArchives {
-    repositories.mavenDeployer{
-        repository(url:repoUrl(version)){
-            url
-            authentication(userName:mvn_repo_user,password:mvn_repo_pwd)
-        }
-
-        pom.project {
-            groupId GROUP_ID
-            artifactId archivesBaseName
-            version version
-            packaging 'aar'
-        }
-    }
-}
-repositories {
-    mavenCentral()
 }
 
 
