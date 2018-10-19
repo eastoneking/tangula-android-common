@@ -5,28 +5,33 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import android.util.Log
 
 class AndroidSettingsUtils{
     companion object {
         @SuppressLint("NewApi")
         fun canOverlayOrNot(act: Activity, task: () -> Unit, onNot: (() -> Unit)?) {
             when {
-                SdkVersionDecides.beforeSdk27A8d1() -> {
+                SdkVersionDecides.beforeSdk22A5d1() -> {
                     PermissionUtils.whenHasAllPremissions(act, listOf(
                             "android.permission.SYSTEM_ALERT_WINDOW"
                     ), task, onNot)
                 }
                 else -> {
-                    val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                            Uri.parse("package:${act.packageName}"))
-                    ActivityResultUtils.startActivityForResult(act, intent) { _, _ ->
-                        SdkVersionDecides.afterSdk23A6d0 {
-                            if (Settings.canDrawOverlays(act)) {
-                                task()
-                            } else {
-                                onNot?.also { it() }
+                    if(!Settings.canDrawOverlays(act)) {
+                        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                                Uri.parse("package:${act.packageName}"))
+                        ActivityResultUtils.startActivityForResult(act, intent) { _, _ ->
+                            SdkVersionDecides.afterSdk23A6d0 {
+                                if (Settings.canDrawOverlays(act)) {
+                                    task()
+                                } else {
+                                    onNot?.also { it() }
+                                }
                             }
                         }
+                    }else{
+                        task()
                     }
                 }
             }
