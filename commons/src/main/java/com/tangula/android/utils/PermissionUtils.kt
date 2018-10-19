@@ -32,7 +32,7 @@ class PermissionUtils {
          */
         private fun nextGrantCode(): Int {
             synchronized(PermissionUtils.Companion) {
-                return grantCount++
+                return ++grantCount
             }
         }
 
