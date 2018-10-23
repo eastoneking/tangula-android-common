@@ -7,5 +7,6 @@ abstract class TglBasicApplication :MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         ApplicationUtils.APP = this
+
     }
 }

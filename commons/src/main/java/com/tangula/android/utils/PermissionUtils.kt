@@ -143,12 +143,6 @@ class PermissionUtils {
                             }
                         }, rejectCallback)
             }
-            checkPermissions(permissions).also {
-                if (it.allPass) {
-                    task()
-                } else {
-                }
-            }
 
         }
         /**
