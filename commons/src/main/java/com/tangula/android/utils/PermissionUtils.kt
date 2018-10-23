@@ -145,6 +145,86 @@ class PermissionUtils {
             }
 
         }
+
+        /**
+         * 当用户第一次授权所有[permissions]列表中的授权时运行[task]，否则运行[rejectCallback].
+         *
+         * 函数首先检查是否拥有所有授权，如果拥有全部授权，则什么都不执行；否则，则请求授予缺失的授权，
+         * 并且在用户授予全部确实的授权后，执行[task],如果用户仍然不授予全部权限，则执行
+         * [rejectCallback].
+         *
+         * 这是说系统在启动过程中，或者说本Activity出现之前，已经调用了某些涉及授权的代码，但是不能
+         * 保证运行时是否已经启动，而这里的授权就是为了检查权限完整性，亡羊补牢.
+         *
+         * @param[act] 调用的Acvitity.
+         * @param[permissions] 需要的授权列表.
+         * @param[task] 拥有完整授权时要执行的任务.
+         * @param[rejectCallback] 无法获得完整授权是执行的任务.
+         *
+         */
+        fun whenFirstGrantPremissions(act: Activity, permissions: List<String>, task: () -> Unit, rejectCallback: (() -> Unit)?) {
+            whenHasAllPremissionsNotWithRequestPermissions(permissions, {}){
+                //只有在Android 6.0下才会有动态申请权限的效果,requestPermissions(...)内有检查,
+                //低版本直接调用rejectCallback.
+                requestPermissions(act, it.rejectPermission,
+                        //授权之后的回调函数
+                        { _, res ->
+                            var result = true
+                            for (c in res) {
+                                result = result && c == PackageManager.PERMISSION_GRANTED
+                                if (!result) {
+                                    break
+                                }
+                            }
+                            if (result) {
+                                task()
+                            } else {
+                                rejectCallback?.also { it() }
+                            }
+                        }, rejectCallback)
+            }
+
+        }
+
+        /**
+         * 当APP拥有[permissions]列表中任意一项授权时运行[task]，否则运行[rejectCallback].
+         *
+         * 函数首先检查[permissions]列表中权限被授予的情况，如果被授予列表中不为空，不执行任何代码；
+         * 否则，则请求授予[permissions]列表中所有权限，并且在用户授予其中任何一项时，执行[task],如
+         * 果用户仍然不授予任何权限，则执行[rejectCallback].
+         *
+         * 这是说系统在启动过程中，或者说本Activity出现之前，已经调用了某些涉及授权的代码，但是不能
+         * 保证运行时是否已经启动，而这里的授权就是为了检查权限完整性，亡羊补牢.
+         *
+         * @param[act] 调用的Acvitity.
+         * @param[permissions] 需要检查的授权列表.
+         * @param[task] 拥有任意一项授权时要执行的任务.
+         * @param[rejectCallback] 无法获得任意一项授权是执行的任务.
+         *
+         */
+        fun whenFirstGrantedAnyPremissions(act: Activity, permissions: List<String>, task: () -> Unit, rejectCallback: (() -> Unit)?) {
+            whenHasAnyPremissionsNotWithRequestPermissions(permissions, {}){
+                //只有在Android 6.0下才会有动态申请权限的效果,requestPermissions(...)内有检查,
+                //低版本直接调用rejectCallback.
+                requestPermissions(act, permissions,
+                        //授权之后的回调函数
+                        { _, res ->
+                            var result = false
+                            for (c in res) {
+                                if (c == PackageManager.PERMISSION_GRANTED) {
+                                    result = true
+                                    break
+                                }
+                            }
+                            if (result) {
+                                task()
+                            } else {
+                                rejectCallback?.also { it() }
+                            }
+                        }, rejectCallback)
+            }
+        }
+
         /**
          * 当APP拥有[permissions]列表中任意一项授权时运行[task]，否则运行[rejectCallback].
          *
