@@ -20,6 +20,7 @@ data class ForegroundServiceMetaInfo(val serviceId: Int, val iconRes: Int, val c
 /**
  * 为前台服务通知构建器.
  */
+@Suppress("DEPRECATION")
 class ForeServiceNotificationBuilder {
     @SuppressLint("NewApi")
     fun buildNotification(ctx: Context, @DrawableRes iconResId: Int, channelId: String, channelName: String?): Notification {
@@ -103,9 +104,9 @@ abstract class TglService<S: IServiceBinder> : Service() {
 
     companion object {
 
-        val BIND_FLAG_AUTO_CRATE_AND_ALWAY_START = Context.BIND_WAIVE_PRIORITY or Context.BIND_AUTO_CREATE
+        private const val BIND_FLAG_AUTO_CRATE_AND_ALWAY_START = Context.BIND_WAIVE_PRIORITY or Context.BIND_AUTO_CREATE
 
-        val BIND_FLAG_AUTO_CRATE_AND_ALWAY_START_IN_BG = Context.BIND_WAIVE_PRIORITY or Context.BIND_AUTO_CREATE or Context.BIND_NOT_FOREGROUND
+        private const val BIND_FLAG_AUTO_CRATE_AND_ALWAY_START_IN_BG = Context.BIND_WAIVE_PRIORITY or Context.BIND_AUTO_CREATE or Context.BIND_NOT_FOREGROUND
 
         protected val BINDERS:MutableList<IServiceBinder> = mutableListOf()
 
@@ -118,6 +119,7 @@ abstract class TglService<S: IServiceBinder> : Service() {
 
         }
 
+        @Suppress("UNCHECKED_CAST")
         fun <S:IServiceBinder> bind2Service(ctx:Context, serviceType: Class<out TglService<S>>, flags:Int, afterConnected:((S)->Unit)?, onDisConnect:((ComponentName?)->Unit)?, onBindFail:(()->Unit)?): ServiceConnection{
             val intent = Intent(ctx, serviceType)
             val conn = object: ServiceConnection {
@@ -131,7 +133,7 @@ abstract class TglService<S: IServiceBinder> : Service() {
                 }
                 override fun onServiceConnected(name: ComponentName?, binder: IBinder?) {
                     if(binder is IServiceBinder){
-                        afterConnected?.also { it(binder!! as S) }
+                        afterConnected?.also { it(binder as S) }
                     }else{
                         onBindFail?.also { it() }
                     }
@@ -145,6 +147,7 @@ abstract class TglService<S: IServiceBinder> : Service() {
             return bind2Service(ctx, serviceType, BIND_FLAG_AUTO_CRATE_AND_ALWAY_START,afterConnected , onDisConnect, onBindFail)
         }
 
+        @Suppress("UNUSED")
         fun <I:IServiceBinder>  bind2BackgroundService(ctx:Context, serviceType: Class<out TglService<I>>,afterConnected:((I)->Unit)?, onDisConnect:((ComponentName?)->Unit)?, onBindFail:(()->Unit)?):ServiceConnection{
             return bind2Service(ctx, serviceType, BIND_FLAG_AUTO_CRATE_AND_ALWAY_START_IN_BG,afterConnected , onDisConnect, onBindFail)
         }

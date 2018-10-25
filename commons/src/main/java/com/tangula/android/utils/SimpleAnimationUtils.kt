@@ -1,9 +1,11 @@
 package com.tangula.android.utils
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 
+@Suppress("UNUSED", "MemberVisibilityCanBePrivate")
 class SimpleAnimationUtils {
 
     companion object {

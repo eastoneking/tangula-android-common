@@ -12,6 +12,7 @@ import com.tangula.android.utils.PermissionUtils
 
 abstract class TglBasicActivity : AppCompatActivity() {
 
+    @Suppress("SENSELESS_COMPARISON")
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         if(ApplicationUtils.APP==null){
             ApplicationUtils.APP = application

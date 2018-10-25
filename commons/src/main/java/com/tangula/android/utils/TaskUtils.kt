@@ -2,8 +2,8 @@ package com.tangula.android.utils
 
 import android.annotation.SuppressLint
 import android.os.AsyncTask
-import android.widget.Toast
 
+@Suppress("UNUSED", "MemberVisibilityCanBePrivate")
 class TaskUtils {
 
     companion object {
@@ -11,7 +11,7 @@ class TaskUtils {
         /**
          * To start a thread in UI thread.
          * <p>This function use AsyncTask to run the task.</p>
-         * @param the task.
+         * @param task The task which would be run.
          */
         @JvmStatic
         @SuppressLint("StaticFieldLeak")
@@ -29,17 +29,17 @@ class TaskUtils {
         /**
          * To start a thread in UI thread.
          * <p>This function use AsyncTask to run the task.</p>
-         * @param the task.
+         * @param task The task which would be run.
          */
         @JvmStatic
-        fun runInUiThread(task:()->Unit?){
+        fun runInUiThread(task:(()->Unit)?){
             runInUiThread(Runnable{task?.invoke()})
         }
 
         /**
          * To start a thread in background.
          * <p>This function use AsyncTask to run the task.</p>
-         * @param the task.
+         * @param task The task which would be run.
          */
         @JvmStatic
         @SuppressLint("StaticFieldLeak")
@@ -54,7 +54,7 @@ class TaskUtils {
         /**
          * To start a thread in background.
          * <p>This function use AsyncTask to run the task.</p>
-         * @param the task.
+         * @param task The task which would be run.
          */
         @JvmStatic
         fun runInBackground(task: Runnable?){

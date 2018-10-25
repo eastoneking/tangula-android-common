@@ -88,7 +88,7 @@ class SharedPreferencesUtils {
          */
         @JvmStatic
         fun getStringSetPrivate(ctx:Context, spName:String, key:String):Set<String>{
-            return ctx.getSharedPreferences(spName, Activity.MODE_PRIVATE).getStringSet(key, mutableSetOf())
+            return ctx.getSharedPreferences(spName, Activity.MODE_PRIVATE).getStringSet(key, mutableSetOf())?: setOf()
         }
 
         /**

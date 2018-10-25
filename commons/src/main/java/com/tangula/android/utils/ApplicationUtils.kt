@@ -95,7 +95,7 @@ class ApplicationUtils {
         @JvmStatic
         fun loadUniqueId(ctx: Context): String {
             val res = ctx.getSharedPreferences(KEY_UNIQUE_ID_SP_NAME, Context.MODE_PRIVATE).getString(KEY_UNIQUE_ID_IN_SP, "")
-            return if(StringUtils.isNotBlank(res) ) res else storeUniqueId(ctx)
+            return if(res is String && StringUtils.isNotBlank(res) ) res else storeUniqueId(ctx)
         }
 
     }

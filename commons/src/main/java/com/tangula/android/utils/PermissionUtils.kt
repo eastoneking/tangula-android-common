@@ -17,6 +17,7 @@ class PermissionCheckResult(val allPass: Boolean,
 /**
  * 授权验证工具.
  */
+@Suppress("UNUSED")
 class PermissionUtils {
 
     companion object {
@@ -139,7 +140,7 @@ class PermissionUtils {
                             if (result) {
                                 task()
                             } else {
-                                rejectCallback?.also { it() }
+                                rejectCallback?.apply { this() }
                             }
                         }, rejectCallback)
             }
@@ -179,7 +180,7 @@ class PermissionUtils {
                             if (result) {
                                 task()
                             } else {
-                                rejectCallback?.also { it() }
+                                rejectCallback?.apply { this() }
                             }
                         }, rejectCallback)
             }
@@ -291,7 +292,7 @@ class PermissionUtils {
                 if (it.passedPermissions.isNotEmpty()) {
                     task()
                 }else{
-                    onNoPerms?.also { it() }
+                    onNoPerms?.apply { this() }
                 }
             }
         }
@@ -303,6 +304,7 @@ class PermissionUtils {
 /**
  * 定位授权工具.
  */
+@Suppress("UNUSED")
 class LocationPermsUtils {
     companion object {
 
@@ -325,6 +327,7 @@ class LocationPermsUtils {
 /**
  * 拨号授权工具.
  */
+@Suppress("UNUSED")
 class CallPermsUtils {
     companion object {
         /**
@@ -344,34 +347,35 @@ class CallPermsUtils {
 /**
  * 文件读写授权工具.
  */
+@Suppress("UNUSED")
 class FilePermsUtils {
     companion object {
         /**
-         * 同时拥有[Manifest.permission.READ_EXTERNAL_STORAGE]和[Manifest.permission.WRITE_EXTERNAL_STORAGE]权限时，就执行[task],否则执行[onRejectGrantCallback].
+         * 同时拥有[Manifest.permission.READ_EXTERNAL_STORAGE]和[Manifest.permission.WRITE_EXTERNAL_STORAGE]权限时，就执行[task],否则执行[onRejectCallback].
          *
          * @param[act] 调用所在的Activity.
          * @param[task] 要执行的任务.
-         * @param[onRejectGrantCallback] 拒绝授予权限时候的处理方法.
+         * @param[onRejectCallback] 拒绝授予权限时候的处理方法.
          */
         fun bothReadWrite(act: Activity, task: () -> Unit, onRejectCallback: () -> Unit) {
             PermissionUtils.whenHasAllPremissions(act, listOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE), task, onRejectCallback)
         }
         /**
-         * 拥有[Manifest.permission.READ_EXTERNAL_STORAGE]权限时，就执行[task],否则执行[onRejectGrantCallback].
+         * 拥有[Manifest.permission.READ_EXTERNAL_STORAGE]权限时，就执行[task],否则执行[onRejectCallback].
          *
          * @param[act] 调用所在的Activity.
          * @param[task] 要执行的任务.
-         * @param[onRejectGrantCallback] 拒绝授予权限时候的处理方法.
+         * @param[onRejectCallback] 拒绝授予权限时候的处理方法.
          */
         fun onlyRead(act: Activity, task: () -> Unit, onRejectCallback: () -> Unit) {
             PermissionUtils.whenHasAllPremissions(act, listOf(Manifest.permission.READ_EXTERNAL_STORAGE), task, onRejectCallback)
         }
         /**
-         * 拥有[Manifest.permission.WRITE_EXTERNAL_STORAGE]权限时，就执行[task],否则执行[onRejectGrantCallback].
+         * 拥有[Manifest.permission.WRITE_EXTERNAL_STORAGE]权限时，就执行[task],否则执行[onRejectCallback].
          *
          * @param[act] 调用所在的Activity.
          * @param[task] 要执行的任务.
-         * @param[onRejectGrantCallback] 拒绝授予权限时候的处理方法.
+         * @param[onRejectCallback] 拒绝授予权限时候的处理方法.
          */
         fun onlyWrite(act: Activity, task: () -> Unit, onRejectCallback: () -> Unit) {
             PermissionUtils.whenHasAllPremissions(act, listOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), task, onRejectCallback)
@@ -382,14 +386,15 @@ class FilePermsUtils {
 /**
  * 网络授权工具.
  */
+@Suppress("UNUSED")
 class NetwordPermsUtils {
     companion object {
         /**
-         * 拥有[Manifest.permission.INTERNET]权限时，就执行[task],否则执行[onRejectGrantCallback].
+         * 拥有[Manifest.permission.INTERNET]权限时，就执行[task],否则执行[onRejectCallback].
          *
          * @param[act] 调用所在的Activity.
          * @param[task] 要执行的任务.
-         * @param[onRejectGrantCallback] 拒绝授予权限时候的处理方法.
+         * @param[onRejectCallback] 拒绝授予权限时候的处理方法.
          */
         fun whenCanAccessInternet(act: Activity, task: () -> Unit, onRejectCallback: () -> Unit) {
             PermissionUtils.whenHasAllPremissions(act, listOf(Manifest.permission.INTERNET), task, onRejectCallback)

@@ -9,6 +9,7 @@ import java.io.IOException
 /**
  * 操作Bitmap的工具类.
  */
+@Suppress("UNUSED")
 class BitmapUtils {
 
     companion object {

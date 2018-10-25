@@ -3,6 +3,7 @@ package com.tangula.android.utils
 import android.widget.Toast
 import com.tangula.android.utils.TaskUtils.Companion.runInUiThread
 
+@Suppress("UNUSED", "MemberVisibilityCanBePrivate")
 class ToastUtils {
 
     companion object {
@@ -57,7 +58,7 @@ class ToastUtils {
 
         /**
          * Show text as toast short time.
-         * @param text The messasge would show in toast.
+         * @param resId The messasge would show in toast.
          */
         @JvmStatic
         fun showToastResShort(resId: Int) {

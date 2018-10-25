@@ -15,6 +15,7 @@ import android.util.Log
 import java.io.*
 import java.lang.Exception
 
+@Suppress("UNUSED")
 class ResUtils {
 
     companion object {
@@ -135,6 +136,7 @@ class ResUtils {
         }
 
         @SuppressLint("NewApi")
+        @Suppress("DEPRECATION")
         @JvmStatic
         fun fetchResColor(@ColorRes colorId: Int): Int {
             return if (SdkVersionDecides.beforeSdk20A4d4W()) {
@@ -146,12 +148,13 @@ class ResUtils {
 
 
         @SuppressLint("NewApi")
+        @Suppress("DEPRECATION")
         @JvmStatic
         fun fetchResColor(@ColorRes colorId: Int, theme: Resources.Theme): Int {
             return if (SdkVersionDecides.beforeSdk20A4d4W()) {
                 ApplicationUtils.APP.resources.getColor(colorId)
             } else {
-                ApplicationUtils.APP.getColor(colorId)
+                ApplicationUtils.APP.resources.getColor(colorId, theme)
             }
         }
 
