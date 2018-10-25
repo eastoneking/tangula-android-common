@@ -8,6 +8,8 @@ import com.tangula.android.utils.ActivityResultUtils
 import com.tangula.android.utils.ApplicationUtils
 import com.tangula.android.utils.PermissionUtils
 
+
+
 abstract class TglBasicActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
