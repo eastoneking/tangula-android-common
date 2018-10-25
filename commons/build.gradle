@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'maven'
 
 
+
 android {
     compileSdkVersion 28
 
@@ -27,6 +28,9 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+
+    implementation "com.github.eastoneking:tangula-commons:$tangula_version"
+
     // https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
