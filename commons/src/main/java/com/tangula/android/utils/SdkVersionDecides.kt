@@ -18,8 +18,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk28A9d0(func:(()->Unit)?){
+            beforeSdk28A9d0(func,null)
+        }
+
+        fun beforeSdk28A9d0(func:(()->Unit)?, onNot:(()->Unit)?){
             if(beforeSdk28A9d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -28,8 +34,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk28A9d0(func:(()->Unit)?){
+            afterSdk28A9d0(func,null)
+        }
+
+        fun afterSdk28A9d0(func:(()->Unit)?, onNot:(()->Unit)?){
             if(afterSdk28A9d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -39,8 +51,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk27A8d1(func:(()->Unit)?){
+            beforeSdk27A8d1(func,null)
+        }
+
+        fun beforeSdk27A8d1(func:(()->Unit)?, onNot:(()->Unit)?){
             if(beforeSdk27A8d1()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -49,8 +67,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk27A8d1(func:(()->Unit)?){
+            afterSdk27A8d1(func,null)
+        }
+
+        fun afterSdk27A8d1(func:(()->Unit)?, onNot:(()->Unit)?){
             if(afterSdk27A8d1()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -61,8 +85,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk26A8d0(func:(()->Unit)?){
+            beforeSdk26A8d0(func,null)
+        }
+
+        fun beforeSdk26A8d0(func:(()->Unit)?, onNot:(()->Unit)?){
             if(beforeSdk26A8d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -71,8 +101,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk26A8d0(func:(()->Unit)?){
+            afterSdk26A8d0(func, null)
+        }
+
+        fun afterSdk26A8d0(func:(()->Unit)?, onNot:(()->Unit)?){
             if(afterSdk26A8d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -83,8 +119,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk25A7d1d1(func:(()->Unit)?){
+            beforeSdk25A7d1d1(func,null)
+        }
+
+        fun beforeSdk25A7d1d1(func:(()->Unit)?, onNot:(()->Unit)?){
             if(beforeSdk25A7d1d1()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -93,11 +135,16 @@ class SdkVersionDecides {
         }
 
         fun afterSdk25A7d1d1(func:(()->Unit)?){
-            if(afterSdk25A7d1d1()){
-                runFuncWhenNullDoNothing(func)
-            }
+            afterSdk25A7d1d1(func,null)
         }
 
+        fun afterSdk25A7d1d1(func:(()->Unit)?, onNot:(()->Unit)?){
+            if(afterSdk25A7d1d1()){
+                runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
+            }
+        }
         //----------------------API 24
 
         fun beforeSdk24A7d0():Boolean{
@@ -105,8 +152,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk24A7d0(func:(()->Unit)?){
+            beforeSdk24A7d0(func,null)
+        }
+
+        fun beforeSdk24A7d0(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(beforeSdk24A7d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -115,8 +168,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk24A7d0(func:(()->Unit)?){
+            afterSdk24A7d0(func,null)
+        }
+
+        fun afterSdk24A7d0(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk24A7d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -126,8 +185,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk23A6d0(func:(()->Unit)?){
+            beforeSdk23A6d0(func,null)
+        }
+
+        fun beforeSdk23A6d0(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(beforeSdk23A6d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -136,11 +201,17 @@ class SdkVersionDecides {
         }
 
         fun afterSdk23A6d0(func:(()->Unit)?){
-            if(afterSdk23A6d0()){
-                runFuncWhenNullDoNothing(func)
-            }
+            afterSdk23A6d0(func,null)
         }
 
+
+        fun afterSdk23A6d0(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(afterSdk23A6d0()){
+                runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
+            }
+        }
 
         //----------------------API 22
 
@@ -149,8 +220,15 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk22A5d1(func:(()->Unit)?){
-            if(afterSdk22A5d1()){
+            beforeSdk22A5d1(func,null)
+        }
+
+
+        fun beforeSdk22A5d1(func:(()->Unit)?,onNot: (() -> Unit)?){
+            if(beforeSdk22A5d1()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -159,11 +237,16 @@ class SdkVersionDecides {
         }
 
         fun afterSdk22A5d1(func:(()->Unit)?){
-            if(afterSdk22A5d1()){
-                runFuncWhenNullDoNothing(func)
-            }
+            afterSdk22A5d1(func,null)
         }
 
+        fun afterSdk22A5d1(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(afterSdk22A5d1()){
+                runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
+            }
+        }
 
         //----------------------API 21
 
@@ -172,8 +255,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk21A5d0(func:(()->Unit)?){
+            beforeSdk21A5d0(func,null)
+        }
+
+        fun beforeSdk21A5d0(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(beforeSdk21A5d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -182,11 +271,16 @@ class SdkVersionDecides {
         }
 
         fun afterSdk21A5d0(func:(()->Unit)?){
-            if(afterSdk21A5d0()){
-                runFuncWhenNullDoNothing(func)
-            }
+            afterSdk21A5d0(func,null)
         }
 
+        fun afterSdk21A5d0(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(afterSdk21A5d0()){
+                runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
+            }
+        }
 
         //----------------------API 20
 
@@ -196,8 +290,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk20A4d4W(func:(()->Unit)?){
+            beforeSdk20A4d4W(func,null)
+        }
+
+        fun beforeSdk20A4d4W(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(beforeSdk20A4d4W()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -206,8 +306,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk20A4d4W(func:(()->Unit)?){
+            afterSdk20A4d4W(func,null)
+        }
+
+        fun afterSdk20A4d4W(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk20A4d4W()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -218,8 +324,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk19A4d4(func:(()->Unit)?){
-            if(afterSdk19A4d4()){
+            beforeSdk19A4d4(func,null)
+        }
+
+        fun beforeSdk19A4d4(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(beforeSdk19A4d4()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -228,8 +340,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk19A4d4(func:(()->Unit)?){
+            afterSdk19A4d4(func,null)
+        }
+
+        fun afterSdk19A4d4(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk19A4d4()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -239,8 +357,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk18A4d3(func:(()->Unit)?){
+            beforeSdk18A4d3(func,null)
+        }
+
+        fun beforeSdk18A4d3(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(beforeSdk18A4d3()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -249,8 +373,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk18A4d3(func:(()->Unit)?){
+            afterSdk18A4d3(func,null)
+        }
+
+        fun afterSdk18A4d3(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk18A4d3()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -261,8 +391,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk17A4d2(func:(()->Unit)?){
-            if(afterSdk17A4d2()){
+            beforeSdk17A4d2(func,null)
+        }
+
+        fun beforeSdk17A4d2(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(beforeSdk17A4d2()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -271,11 +407,16 @@ class SdkVersionDecides {
         }
 
         fun afterSdk17A4d2(func:(()->Unit)?){
-            if(afterSdk17A4d2()){
-                runFuncWhenNullDoNothing(func)
-            }
+            afterSdk17A4d2(func,null)
         }
 
+        fun afterSdk17A4d2(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(afterSdk17A4d2()){
+                runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
+            }
+        }
         //----------------------API 16
 
         fun beforeSdk16A4d1():Boolean{
@@ -283,8 +424,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk16A4d1(func:(()->Unit)?){
-            if(afterSdk16A4d1()){
+            beforeSdk16A4d1(func,null)
+        }
+
+        fun beforeSdk16A4d1(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(beforeSdk16A4d1()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -293,11 +440,16 @@ class SdkVersionDecides {
         }
 
         fun afterSdk16A4d1(func:(()->Unit)?){
-            if(afterSdk16A4d1()){
-                runFuncWhenNullDoNothing(func)
-            }
+            afterSdk16A4d1(func,null)
         }
 
+        fun afterSdk16A4d1(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(afterSdk16A4d1()){
+                runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
+            }
+        }
         //----------------------API 15
 
         fun beforeSdk15A4d0d3():Boolean{
@@ -305,8 +457,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk15A4d0d3(func:(()->Unit)?){
+            beforeSdk15A4d0d3(func,null)
+        }
+
+        fun beforeSdk15A4d0d3(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(beforeSdk15A4d0d3()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -315,8 +473,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk15A4d0d3(func:(()->Unit)?){
+            afterSdk15A4d0d3(func,null)
+        }
+
+        fun afterSdk15A4d0d3(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk15A4d0d3()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -326,8 +490,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk14A4d0(func:(()->Unit)?){
+            beforeSdk14A4d0(func,null)
+        }
+
+        fun beforeSdk14A4d0(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(beforeSdk14A4d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -336,8 +506,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk14A4d0(func:(()->Unit)?){
+            afterSdk14A4d0(func,null)
+        }
+
+        fun afterSdk14A4d0(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk14A4d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -348,8 +524,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk12A3d2(func:(()->Unit)?){
+            beforeSdk12A3d2(func,null)
+        }
+
+        fun beforeSdk12A3d2(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(beforeSdk12A3d2()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -358,8 +540,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk12A3d2(func:(()->Unit)?){
+            afterSdk12A3d2(func,null)
+        }
+
+        fun afterSdk12A3d2(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk12A3d2()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -370,8 +558,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk12A3d1(func:(()->Unit)?){
+            beforeSdk12A3d1(func, null)
+        }
+
+        fun beforeSdk12A3d1(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(beforeSdk12A3d1()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -380,8 +574,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk12A3d1(func:(()->Unit)?){
+            afterSdk12A3d1(func, null)
+        }
+
+        fun afterSdk12A3d1(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk12A3d1()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -391,8 +591,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk11A3d0(func:(()->Unit)?){
-            if(afterSdk11A3d0()){
+            beforeSdk11A3d0(func, null)
+        }
+
+        fun beforeSdk11A3d0(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(beforeSdk11A3d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -401,8 +607,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk11A3d0(func:(()->Unit)?){
+            afterSdk11A3d0(func, null)
+        }
+
+        fun afterSdk11A3d0(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk11A3d0()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -413,8 +625,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk10A2d3d3(func:(()->Unit)?){
-            if(afterSdk10A2d3d3()){
+            beforeSdk10A2d3d3(func, null)
+        }
+
+        fun beforeSdk10A2d3d3(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(beforeSdk10A2d3d3()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -423,8 +641,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk10A2d3d3(func:(()->Unit)?){
+            afterSdk10A2d3d3(func, null)
+        }
+
+        fun afterSdk10A2d3d3(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk10A2d3d3()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -435,8 +659,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk9A2d3(func:(()->Unit)?){
-            if(afterSdk9A2d3()){
+            beforeSdk9A2d3(func, null)
+        }
+
+        fun beforeSdk9A2d3(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(beforeSdk9A2d3()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -445,10 +675,17 @@ class SdkVersionDecides {
         }
 
         fun afterSdk9A2d3(func:(()->Unit)?){
+            afterSdk9A2d3(func, null)
+        }
+
+        fun afterSdk9A2d3(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk9A2d3()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
+
 
 
         //----------------------API 8
@@ -458,8 +695,14 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk8A2d2(func:(()->Unit)?){
-            if(afterSdk8A2d2()){
+            beforeSdk8A2d2(func, null)
+        }
+
+        fun beforeSdk8A2d2(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(beforeSdk8A2d2()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -468,8 +711,14 @@ class SdkVersionDecides {
         }
 
         fun afterSdk8A2d2(func:(()->Unit)?){
+            afterSdk8A2d2(func, null)
+        }
+
+        fun afterSdk8A2d2(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk8A2d2()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
@@ -480,17 +729,30 @@ class SdkVersionDecides {
         }
 
         fun beforeSdk7A2d1(func:(()->Unit)?){
-            if(afterSdk7A2d1()){
+            beforeSdk7A2d1(func,null)
+        }
+
+        fun beforeSdk7A2d1(func:(()->Unit)?, onNot: (() -> Unit)?){
+            if(beforeSdk7A2d1()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
+
         fun afterSdk7A2d1():Boolean{
             return Build.VERSION.SDK_INT >= 7
         }
 
         fun afterSdk7A2d1(func:(()->Unit)?){
+            afterSdk7A2d1(func, null)
+        }
+
+        fun afterSdk7A2d1(func:(()->Unit)?, onNot: (() -> Unit)?){
             if(afterSdk7A2d1()){
                 runFuncWhenNullDoNothing(func)
+            }else{
+                onNot?.apply { this() }
             }
         }
 
