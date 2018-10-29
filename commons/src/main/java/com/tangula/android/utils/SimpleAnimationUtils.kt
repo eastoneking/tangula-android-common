@@ -26,7 +26,7 @@ class SimpleAnimationUtils {
         fun playScaleAnimation(view: View, fromX:Float, toX:Float, fromY:Float, toY:Float,
                                pivotXType:Int, pivotXValue:Float, pivotYType:Int, pivotYValue:Float, startOffset:Long?, duration:Long, repeatCount:Int?, repeatMode:Int?):ScaleAnimation{
             val scaleAnimation =
-                    ScaleAnimation(fromX, fromX, fromY, toY, pivotXType, pivotXValue, pivotYType, pivotYValue)
+                    ScaleAnimation(fromX, toX, fromY, toY, pivotXType, pivotXValue, pivotYType, pivotYValue)
             startOffset?.also{scaleAnimation.startOffset = startOffset}
             scaleAnimation.duration = duration
             repeatCount?.also { scaleAnimation.repeatCount = repeatCount }

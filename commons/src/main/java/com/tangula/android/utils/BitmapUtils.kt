@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.util.Base64
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.nio.ByteBuffer
 
 /**
  * 操作Bitmap的工具类.
@@ -65,4 +66,17 @@ class BitmapUtils {
         }
     }
 
+}
+
+@Suppress("unused")
+fun Bitmap.fromBase64(b64:String){
+    val tmp = BitmapUtils.base64ToBitmap(b64)
+    val buf = ByteBuffer.allocate(tmp.byteCount)
+    tmp.copyPixelsToBuffer(buf)
+    this.copyPixelsFromBuffer(buf)
+}
+
+@Suppress("unused")
+fun Bitmap.toBase64():String{
+    return BitmapUtils.bitmapToBase64(this)
 }

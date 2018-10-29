@@ -18,3 +18,7 @@ class ActivityUtils {
     }
 
 }
+
+fun Activity.startActivity(clazz:KClass<out Activity>){
+    ActivityUtils.startActivity(clazz)
+}
