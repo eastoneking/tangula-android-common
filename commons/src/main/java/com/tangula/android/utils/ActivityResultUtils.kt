@@ -53,7 +53,7 @@ class ActivityResultUtils {
              * @return 下次运行Activity的Code.
              */
             private fun nextActivityCode(): Int {
-                synchronized(com.tangula.android.utils.PermissionUtils.Companion) {
+                synchronized(com.tangula.android.utils.PermissionUtils.LOCK) {
                     return ++CUR_ACTIVITY_CODE
                 }
             }
