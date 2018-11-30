@@ -26,7 +26,7 @@ public class PermissionUtils {
      */
     private static int grantCount = 0;
 
-    public static final Object LOCK = new Object();
+    static final Object LOCK = new Object();
 
     /**
      * 获得下一次运行动态授权的Code.
@@ -135,6 +135,7 @@ public class PermissionUtils {
      * @param task        拥有完整授权时要执行的任务.
      * @param onNoPerms   没有获得完整授权是执行的任务.
      */
+    @SuppressWarnings({"WeakerAccess", "unused"})
     public static PermissionCheckResult whenHasAllPremissionsNotWithRequestPermissions(List<String> permissions, Runnable task, Consumer<PermissionCheckResult> onNoPerms) {
         PermissionCheckResult res = checkPermissions(permissions);
         if (res.isAllPass()) {
@@ -159,14 +160,14 @@ public class PermissionUtils {
      * 函数首先检查是否拥有所有授权，如果拥有全部授权，就执行[task]；否则，则请求授予缺失的授权，
      * 并且在用户授予全部确实的授权后，执行[task],如果用户仍然不授予全部权限，则执行
      * [rejectCallback].
-     *
-     * @param act            调用的Acvitity.
+     *  @param act            调用的Acvitity.
      * @param permissions    需要的授权列表.
      * @param task           拥有完整授权时要执行的任务.
      * @param rejectCallback 无法获得完整授权是执行的任务.
      */
-    public static void whenHasAllPremissions(final Activity act, List<String> permissions, final Runnable task, final Runnable rejectCallback) {
-        whenHasAllPremissionsNotWithRequestPermissions(permissions, task, new Consumer<PermissionCheckResult>() {
+    @SuppressWarnings({"WeakerAccess", "unused", "UnusedReturnValue"})
+    public static PermissionCheckResult whenHasAllPremissions(final Activity act, List<String> permissions, final Runnable task, final Runnable rejectCallback) {
+        return whenHasAllPremissionsNotWithRequestPermissions(permissions, task, new Consumer<PermissionCheckResult>() {
             @Override
             public void accept(PermissionCheckResult it) {
                 //只有在Android 6.0下才会有动态申请权限的效果,requestPermissions(...)内有检查,
@@ -207,16 +208,15 @@ public class PermissionUtils {
      * <p>
      * 这是说系统在启动过程中，或者说本Activity出现之前，已经调用了某些涉及授权的代码，但是不能
      * 保证运行时是否已经启动，而这里的授权就是为了检查权限完整性，亡羊补牢.
-     *
-     * @param act            调用的Acvitity.
+     *  @param act            调用的Acvitity.
      * @param permissions    需要的授权列表.
      * @param task           拥有完整授权时要执行的任务.
      * @param rejectCallback 无法获得完整授权是执行的任务.
      */
 
     @SuppressWarnings("unused")
-    public static void whenFirstGrantPremissions(final Activity act, List<String> permissions, final Runnable task, final Runnable rejectCallback) {
-        whenHasAllPremissionsNotWithRequestPermissions(permissions, null, new Consumer<PermissionCheckResult>() {
+    public static PermissionCheckResult whenFirstGrantPremissions(final Activity act, List<String> permissions, final Runnable task, final Runnable rejectCallback) {
+        return whenHasAllPremissionsNotWithRequestPermissions(permissions, null, new Consumer<PermissionCheckResult>() {
             @Override
             public void accept(PermissionCheckResult it) {
                 //只有在Android 6.0下才会有动态申请权限的效果,requestPermissions(...)内有检查,
@@ -336,6 +336,7 @@ public class PermissionUtils {
      * @param task           拥有任意一项授权时要执行的任务.
      * @param rejectCallback 无法获得任意一项授权是执行的任务.
      */
+    @SuppressWarnings({"WeakerAccess", "unused"})
     public static void whenHasAnyPremissions(final Activity act, final List<String> permissions, final Runnable task, final Runnable rejectCallback) {
 
         whenHasAnyPremissionsNotWithRequestPermissions(permissions, task, new Runnable() {

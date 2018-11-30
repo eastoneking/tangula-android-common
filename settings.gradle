@@ -1,1 +1,1 @@
-include ':commons', ':testapp'
+include ':commons', ':testapp', ':kcommons'
