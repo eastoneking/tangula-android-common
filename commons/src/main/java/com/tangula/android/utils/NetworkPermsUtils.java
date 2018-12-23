@@ -11,7 +11,7 @@ import java.util.List;
  * 网络授权工具.
  */
 @SuppressWarnings("unused")
-public class NetwordPermsUtils {
+public class NetworkPermsUtils {
 
     private static final List<String> INTERNET_PERMISSIONS = new LinkedList<>();
 
